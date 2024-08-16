@@ -7,6 +7,7 @@ import org.junit.jupiter.api.Test;
 class SoldierTest {
     int strength = 150;
     int health = 300;
+    private int damage;
 
    @Test
    public void should_receive_2_arguments() {
