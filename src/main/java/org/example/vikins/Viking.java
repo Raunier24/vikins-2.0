@@ -40,4 +40,8 @@ public class Viking extends Soldier {
     public String battleCry() {
         return "Odin Owns You All!";
     }
+
+    public int getHealth() {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
 }

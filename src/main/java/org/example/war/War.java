@@ -17,14 +17,14 @@ public class War {
         this.saxonArmy = new ArrayList<>();
     }
 
-    // Método para obtener la lista de vikingos
+    // Método para obtener el ejército de vikingos
     public List<Viking> getVikingArmy() {
-        return vikingArmy;
+        return this.vikingArmy;
     }
 
-    // Método para obtener la lista de saxones
+    // Método para obtener el ejército de sajones
     public List<Saxon> getSaxonArmy() {
-        return saxonArmy;
+        return this.saxonArmy;
     }
 
     // Método para añadir un vikingo al ejército
@@ -32,52 +32,46 @@ public class War {
         this.vikingArmy.add(viking);
     }
 
-    // Método para añadir un saxón al ejército
+    // Método para añadir un sajón al ejército
     public void addSaxon(Saxon saxon) {
         this.saxonArmy.add(saxon);
     }
 
-    // Método para manejar el ataque de un vikingo a un saxón
+    // Método para que un vikingo ataque a un sajón
     public String vikingAttack() {
-        if (saxonArmy.isEmpty() || vikingArmy.isEmpty()) {
-            return null;
+        if (this.saxonArmy.isEmpty() || this.vikingArmy.isEmpty()) {
+            return "No hay suficientes tropas para atacar.";
         }
-
-        // Selecciona un saxón y un vikingo al azar
-        Saxon saxon = saxonArmy.get(new Random().nextInt(saxonArmy.size()));
-        Viking viking = vikingArmy.get(new Random().nextInt(vikingArmy.size()));
-
-        // El saxón recibe daño igual a la fuerza del vikingo
-        saxon.receiveDamage(viking.attack());
-
-        // Si el saxón muere, se elimina del ejército
-        if (saxon.getHealth() <= 0) {
-            saxonArmy.remove(saxon);
+        Random rand = new Random();
+        Viking attackingViking = this.vikingArmy.get(rand.nextInt(vikingArmy.size()));
+        Saxon targetSaxon = this.saxonArmy.get(rand.nextInt(saxonArmy.size()));
+        
+        int damage = attackingViking.getStrength();
+        targetSaxon.receiveDamage(damage);
+        
+        if (targetSaxon.getHealth() <= 0) {
+            this.saxonArmy.remove(targetSaxon);
         }
-
-        // Retorna el mensaje correspondiente
-        return saxon.getMsg();
+        
+        return targetSaxon.getMsg();
     }
 
-    // Método para manejar el ataque de un saxón a un vikingo
+    // Método para que un sajón ataque a un vikingo
     public String saxonAttack() {
-        if (saxonArmy.isEmpty() || vikingArmy.isEmpty()) {
-            return null;
+        if (this.saxonArmy.isEmpty() || this.vikingArmy.isEmpty()) {
+            return "No hay suficientes tropas para atacar.";
         }
-
-        // Selecciona un vikingo y un saxón al azar
-        Viking viking = vikingArmy.get(new Random().nextInt(vikingArmy.size()));
-        Saxon saxon = saxonArmy.get(new Random().nextInt(saxonArmy.size()));
-
-        // El vikingo recibe daño igual a la fuerza del saxón
-        viking.receiveDamage(saxon.attack());
-
-        // Si el vikingo muere, se elimina del ejército
-        if (viking.getHealth() <= 0) {
-            vikingArmy.remove(viking);
+        Random rand = new Random();
+        Saxon attackingSaxon = this.saxonArmy.get(rand.nextInt(saxonArmy.size()));
+        Viking targetViking = this.vikingArmy.get(rand.nextInt(vikingArmy.size()));
+        
+        int damage = attackingSaxon.getStrength();
+        targetViking.receiveDamage(damage);
+        
+        if (targetViking.getHealth() <= 0) {
+            this.vikingArmy.remove(targetViking);
         }
-
-        // Retorna el mensaje correspondiente
-        return viking.getMsg();
+        
+        return targetViking.getMsg();
     }
 }

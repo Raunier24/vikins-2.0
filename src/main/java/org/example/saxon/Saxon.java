@@ -31,4 +31,16 @@ public class Saxon extends Soldier {
     public String getMsg() {
         return this.msg;
     }
+
+    public int getHealth() {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    public void setHealth(int i) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    public int getStrength() {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
 }

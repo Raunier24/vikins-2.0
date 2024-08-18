@@ -1,7 +1,7 @@
 package org.example.war;
 
 import org.example.saxon.Saxon;
-
+import org.example.vikins.Viking;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
@@ -32,7 +32,7 @@ class WarTest {
 
    @Test
    public void should_assign_an_empty_array_to_the_saxonArmy_property() {
-       List<Object> saxonArmy = war.getSaxonArmy();
+       List<Saxon> saxonArmy = war.getSaxonArmy();
        assertTrue(saxonArmy.isEmpty());
    }
 
