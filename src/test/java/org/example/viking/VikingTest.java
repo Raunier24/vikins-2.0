@@ -47,7 +47,7 @@ class VikingTest {
    @Test
    public void attack_should_receive_0_arguments() {
        int damage = 50;
-       int resultAttack = viking.attack(damage);
+       int resultAttack = viking.attack();
        assertEquals(this.strength, resultAttack);
    }
 

@@ -44,7 +44,7 @@ class SaxonTest {
    public void attack_should_receive_0_arguments() {
        Saxon saxon = new Saxon(health, strength);
        int damage = 50;
-       int resultAttack = saxon.attack(damage);
+       int resultAttack = saxon.attack();
        assertEquals(this.strength, resultAttack);
    }
 

@@ -12,7 +12,7 @@ public class Saxon extends Soldier {
 
     // Método attack que devuelve la propiedad strength
     public int attack() {
-        return this.strength; // Retorna la fuerza del Saxon
+        return this.getStrength(); // Retorna la fuerza del Saxon
     }
 
     // Método receiveDamage que resta el daño recibido de la salud
@@ -20,7 +20,7 @@ public class Saxon extends Soldier {
         super.receiveDamage(damage); // Llama a receiveDamage de Soldier
 
         // Verifica si la salud es mayor a 0 para determinar el mensaje
-        if (this.health > 0) {
+        if (this.getHealth() > 0) {
             this.msg = "A Saxon has received " + damage + " points of damage";
         } else {
             this.msg = "A Saxon has died in combat";
@@ -32,15 +32,17 @@ public class Saxon extends Soldier {
         return this.msg;
     }
 
+    // Métodos para obtener la salud y la fuerza del Saxon
     public int getHealth() {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
-
-    public void setHealth(int i) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        return super.getHealth();
     }
 
     public int getStrength() {
-        throw new UnsupportedOperationException("Not supported yet.");
+        return super.getStrength();
+    }
+
+    // Método para establecer la salud del Saxon
+    public void setHealth(int health) {
+        super.setHealth(health);
     }
 }

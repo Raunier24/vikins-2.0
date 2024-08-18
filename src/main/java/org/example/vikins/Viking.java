@@ -4,27 +4,22 @@ import org.example.soldier.Soldier;
 
 public class Viking extends Soldier {
     public String name;
-    public int health;
-    public int strength;
-    String msg;
 
     // Constructor
     public Viking(String name, int health, int strength) {
         super(health, strength);  // Llama al constructor de la clase Soldier
         this.name = name;
-        this.health = health;
-        this.strength = strength;
     }
 
     // Método attack que devuelve la fuerza del vikingo
     public int attack() {
-        return this.strength;
+        return this.getStrength();
     }
 
     // Método receiveDamage que reduce la salud en función del daño recibido
     public void receiveDamage(int damage) {
-        this.health -= damage;
-        if (this.health > 0) {
+        super.receiveDamage(damage);
+        if (this.getHealth() > 0) {
             this.msg = this.name + " has received " + damage + " points of damage";
         } else {
             this.msg = this.name + " has died in combat";
@@ -41,7 +36,22 @@ public class Viking extends Soldier {
         return "Odin Owns You All!";
     }
 
+    // Método para obtener el nombre del vikingo
+    public String getName() {
+        return this.name;
+    }
+
+    // Métodos para obtener la salud y la fuerza del vikingo
     public int getHealth() {
-        throw new UnsupportedOperationException("Not supported yet.");
+        return super.getHealth();
+    }
+
+    public int getStrength() {
+        return super.getStrength();
+    }
+
+    // Método para establecer la salud del vikingo
+    public void setHealth(int health) {
+        super.setHealth(health);
     }
 }
